@@ -1,43 +1,57 @@
-import { Inter } from "next/font/google";
 import {
     ResizableHandle,
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
     return (
-        <main
-            className={`flex min-h-screen flex-col items-center justify-between p-4 ${inter.className}`}
-        >
+        <div className="h-screen p-2">
             <ResizablePanelGroup
                 direction="horizontal"
-                className="rounded-lg border"
+                className="rounded-md border shadow-lg"
             >
-                <ResizablePanel defaultSize={50}>
-                    <div className="flex h-[200px] items-center justify-center p-6">
-                        <span className="font-semibold">One</span>
+                {/* Sidebar */}
+                <ResizablePanel defaultSize={25}>
+                    <div className="flex h-full items-center justify-center p-6">
+                        <span className="font-semibold">Sidebar</span>
                     </div>
                 </ResizablePanel>
-                <ResizableHandle />
-                <ResizablePanel defaultSize={50}>
-                    <ResizablePanelGroup direction="vertical">
+
+                <ResizableHandle withHandle />
+
+                {/* Main UI */}
+                <ResizablePanel defaultSize={75}>
+                    <ResizablePanelGroup direction="horizontal">
+                        {/* Package inspector */}
                         <ResizablePanel defaultSize={25}>
                             <div className="flex h-full items-center justify-center p-6">
-                                <span className="font-semibold">Two</span>
+                                <span className="font-semibold">
+                                    Package Inspector
+                                </span>
                             </div>
                         </ResizablePanel>
-                        <ResizableHandle />
-                        <ResizablePanel defaultSize={75}>
+                        <ResizableHandle withHandle />
+
+                        {/* Code inspector */}
+                        <ResizablePanel defaultSize={50}>
                             <div className="flex h-full items-center justify-center p-6">
-                                <span className="font-semibold">Three</span>
+                                <span className="font-semibold">
+                                    File Inspector
+                                </span>
+                            </div>
+                        </ResizablePanel>
+                        <ResizableHandle withHandle />
+
+                        {/* Clearance */}
+                        <ResizablePanel defaultSize={25}>
+                            <div className="flex h-full items-center justify-center p-6">
+                                <span className="font-semibold">Clearance</span>
                             </div>
                         </ResizablePanel>
                     </ResizablePanelGroup>
                 </ResizablePanel>
             </ResizablePanelGroup>
-        </main>
+        </div>
     );
 }
