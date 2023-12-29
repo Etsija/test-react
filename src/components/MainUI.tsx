@@ -1,18 +1,28 @@
 import React from "react";
+import useSettingsStore from "@/store/settings.store";
 import {
     ResizableHandle,
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
-const MainUI = () => {
+type Props = {
+    defaultLayout: number[];
+};
+
+const MainUI = ({ defaultLayout }: Props) => {
+    const setAllWidths = useSettingsStore((state) => state.setAllWidths);
+
     return (
         <ResizablePanelGroup
             direction="horizontal"
             className="rounded-md border shadow-lg"
+            onLayout={(sizes: number[]) => {
+                setAllWidths(sizes);
+            }}
         >
             {/* Sidebar */}
-            <ResizablePanel defaultSize={25}>
+            <ResizablePanel defaultSize={defaultLayout[0]}>
                 <div className="flex h-full items-center justify-center p-6">
                     <span className="font-semibold">Sidebar</span>
                 </div>
@@ -21,35 +31,28 @@ const MainUI = () => {
             <ResizableHandle withHandle />
 
             {/* Main UI */}
-            <ResizablePanel defaultSize={75}>
-                <ResizablePanelGroup direction="horizontal">
-                    {/* Package inspector */}
-                    <ResizablePanel defaultSize={25}>
-                        <div className="flex h-full items-center justify-center p-6">
-                            <span className="font-semibold">
-                                Package Inspector
-                            </span>
-                        </div>
-                    </ResizablePanel>
-                    <ResizableHandle withHandle />
 
-                    {/* Code inspector */}
-                    <ResizablePanel defaultSize={50}>
-                        <div className="flex h-full items-center justify-center p-6">
-                            <span className="font-semibold">
-                                File Inspector
-                            </span>
-                        </div>
-                    </ResizablePanel>
-                    <ResizableHandle withHandle />
+            {/* Package inspector */}
+            <ResizablePanel defaultSize={defaultLayout[1]}>
+                <div className="flex h-full items-center justify-center p-6">
+                    <span className="font-semibold">Package Inspector</span>
+                </div>
+            </ResizablePanel>
+            <ResizableHandle withHandle />
 
-                    {/* Clearance */}
-                    <ResizablePanel defaultSize={25}>
-                        <div className="flex h-full items-center justify-center p-6">
-                            <span className="font-semibold">Clearance</span>
-                        </div>
-                    </ResizablePanel>
-                </ResizablePanelGroup>
+            {/* Code inspector */}
+            <ResizablePanel defaultSize={defaultLayout[2]}>
+                <div className="flex h-full items-center justify-center p-6">
+                    <span className="font-semibold">File Inspector</span>
+                </div>
+            </ResizablePanel>
+            <ResizableHandle withHandle />
+
+            {/* Clearance */}
+            <ResizablePanel defaultSize={defaultLayout[3]}>
+                <div className="flex h-full items-center justify-center p-6">
+                    <span className="font-semibold">Clearance</span>
+                </div>
             </ResizablePanel>
         </ResizablePanelGroup>
     );
