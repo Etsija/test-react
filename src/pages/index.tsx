@@ -7,6 +7,9 @@ const MainUI = dynamic(() => import("@/components/MainUI"), {
 
 export default function Home() {
     const mainWidths = useSettingsStore((state) => state.mainWidths);
+    const clearanceHeights = useSettingsStore(
+        (state) => state.clearanceHeights,
+    );
 
     return (
         <div className="h-screen p-2">

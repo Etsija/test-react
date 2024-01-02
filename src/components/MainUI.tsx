@@ -12,6 +12,9 @@ type Props = {
 
 const MainUI = ({ defaultLayout }: Props) => {
     const setMainWidths = useSettingsStore((state) => state.setMainWidths);
+    const setClearanceHeights = useSettingsStore(
+        (state) => state.setClearanceHeights,
+    );
 
     return (
         <ResizablePanelGroup
