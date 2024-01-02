@@ -16,41 +16,38 @@ const MainUI = ({ defaultLayout }: Props) => {
     return (
         <ResizablePanelGroup
             direction="horizontal"
-            className="rounded-md border shadow-lg"
+            className="border rounded-md shadow-lg"
             onLayout={(sizes: number[]) => {
                 setAllWidths(sizes);
             }}
         >
-            {/* Sidebar */}
             <ResizablePanel defaultSize={defaultLayout[0]}>
-                <div className="flex h-full items-center justify-center p-6">
+                {/* Sidebar */}
+                <div className="flex items-center justify-center h-full p-6">
                     <span className="font-semibold">Sidebar</span>
                 </div>
             </ResizablePanel>
-
             <ResizableHandle withHandle />
 
-            {/* Main UI */}
-
-            {/* Package inspector */}
             <ResizablePanel defaultSize={defaultLayout[1]}>
-                <div className="flex h-full items-center justify-center p-6">
+                {/* Package inspector */}
+                <div className="flex items-center justify-center h-full p-6">
                     <span className="font-semibold">Package Inspector</span>
                 </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
 
-            {/* Code inspector */}
             <ResizablePanel defaultSize={defaultLayout[2]}>
-                <div className="flex h-full items-center justify-center p-6">
+                {/* Code inspector */}
+                <div className="flex items-center justify-center h-full p-6">
                     <span className="font-semibold">File Inspector</span>
                 </div>
             </ResizablePanel>
             <ResizableHandle withHandle />
 
-            {/* Clearance */}
             <ResizablePanel defaultSize={defaultLayout[3]}>
-                <div className="flex h-full items-center justify-center p-6">
+                {/* Clearance */}
+                <div className="flex items-center justify-center h-full p-6">
                     <span className="font-semibold">Clearance</span>
                 </div>
             </ResizablePanel>
