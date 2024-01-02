@@ -6,11 +6,11 @@ const MainUI = dynamic(() => import("@/components/MainUI"), {
 });
 
 export default function Home() {
-    const widths = useSettingsStore((state) => state.widths);
+    const mainWidths = useSettingsStore((state) => state.mainWidths);
 
     return (
         <div className="h-screen p-2">
-            <MainUI defaultLayout={widths} />
+            <MainUI defaultLayout={mainWidths} />
         </div>
     );
 }

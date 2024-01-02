@@ -2,18 +2,18 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 type State = {
-    widths: number[];
+    mainWidths: number[];
 };
 
 type Actions = {
-    setAllWidths: (newWidths: number[]) => void;
+    setMainWidths: (w: number[]) => void;
 };
 
 const useSettingsStore = create<State & Actions>()(
     persist(
         (set) => ({
-            widths: [7, 25, 53, 15],
-            setAllWidths: (newWidths) => set({ widths: newWidths }),
+            mainWidths: [7, 25, 53, 15],
+            setMainWidths: (w) => set({ mainWidths: w }),
         }),
         {
             name: "layout-storage",

@@ -11,19 +11,19 @@ type Props = {
 };
 
 const MainUI = ({ defaultLayout }: Props) => {
-    const setAllWidths = useSettingsStore((state) => state.setAllWidths);
+    const setMainWidths = useSettingsStore((state) => state.setMainWidths);
 
     return (
         <ResizablePanelGroup
             direction="horizontal"
-            className="border rounded-md shadow-lg"
+            className="rounded-md border shadow-lg"
             onLayout={(sizes: number[]) => {
-                setAllWidths(sizes);
+                setMainWidths(sizes);
             }}
         >
             <ResizablePanel defaultSize={defaultLayout[0]}>
                 {/* Sidebar */}
-                <div className="flex items-center justify-center h-full p-6">
+                <div className="flex h-full items-center justify-center p-6">
                     <span className="font-semibold">Sidebar</span>
                 </div>
             </ResizablePanel>
@@ -31,7 +31,7 @@ const MainUI = ({ defaultLayout }: Props) => {
 
             <ResizablePanel defaultSize={defaultLayout[1]}>
                 {/* Package inspector */}
-                <div className="flex items-center justify-center h-full p-6">
+                <div className="flex h-full items-center justify-center p-6">
                     <span className="font-semibold">Package Inspector</span>
                 </div>
             </ResizablePanel>
@@ -39,7 +39,7 @@ const MainUI = ({ defaultLayout }: Props) => {
 
             <ResizablePanel defaultSize={defaultLayout[2]}>
                 {/* Code inspector */}
-                <div className="flex items-center justify-center h-full p-6">
+                <div className="flex h-full items-center justify-center p-6">
                     <span className="font-semibold">File Inspector</span>
                 </div>
             </ResizablePanel>
@@ -49,7 +49,7 @@ const MainUI = ({ defaultLayout }: Props) => {
                 {/* Clearance */}
                 <ResizablePanelGroup direction="vertical">
                     <ResizablePanel>
-                        <div className="flex items-center justify-center h-full p-6">
+                        <div className="flex h-full items-center justify-center p-6">
                             <span className="font-semibold">
                                 Detected license
                             </span>
@@ -57,7 +57,7 @@ const MainUI = ({ defaultLayout }: Props) => {
                     </ResizablePanel>
                     <ResizableHandle withHandle />
                     <ResizablePanel>
-                        <div className="flex items-center justify-center h-full p-6">
+                        <div className="flex h-full items-center justify-center p-6">
                             <span className="font-semibold">
                                 Individual license matches
                             </span>
@@ -65,7 +65,7 @@ const MainUI = ({ defaultLayout }: Props) => {
                     </ResizablePanel>
                     <ResizableHandle withHandle />
                     <ResizablePanel>
-                        <div className="flex items-center justify-center h-full p-6">
+                        <div className="flex h-full items-center justify-center p-6">
                             <span className="font-semibold">
                                 Concluded license
                             </span>
@@ -73,7 +73,7 @@ const MainUI = ({ defaultLayout }: Props) => {
                     </ResizablePanel>
                     <ResizableHandle withHandle />
                     <ResizablePanel>
-                        <div className="flex items-center justify-center h-full p-6">
+                        <div className="flex h-full items-center justify-center p-6">
                             <span className="font-semibold">
                                 Create a license conclusion
                             </span>
