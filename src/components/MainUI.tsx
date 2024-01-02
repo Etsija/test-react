@@ -47,9 +47,39 @@ const MainUI = ({ defaultLayout }: Props) => {
 
             <ResizablePanel defaultSize={defaultLayout[3]}>
                 {/* Clearance */}
-                <div className="flex items-center justify-center h-full p-6">
-                    <span className="font-semibold">Clearance</span>
-                </div>
+                <ResizablePanelGroup direction="vertical">
+                    <ResizablePanel>
+                        <div className="flex items-center justify-center h-full p-6">
+                            <span className="font-semibold">
+                                Detected license
+                            </span>
+                        </div>
+                    </ResizablePanel>
+                    <ResizableHandle withHandle />
+                    <ResizablePanel>
+                        <div className="flex items-center justify-center h-full p-6">
+                            <span className="font-semibold">
+                                Individual license matches
+                            </span>
+                        </div>
+                    </ResizablePanel>
+                    <ResizableHandle withHandle />
+                    <ResizablePanel>
+                        <div className="flex items-center justify-center h-full p-6">
+                            <span className="font-semibold">
+                                Concluded license
+                            </span>
+                        </div>
+                    </ResizablePanel>
+                    <ResizableHandle withHandle />
+                    <ResizablePanel>
+                        <div className="flex items-center justify-center h-full p-6">
+                            <span className="font-semibold">
+                                Create a license conclusion
+                            </span>
+                        </div>
+                    </ResizablePanel>
+                </ResizablePanelGroup>
             </ResizablePanel>
         </ResizablePanelGroup>
     );
