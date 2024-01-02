@@ -13,7 +13,10 @@ export default function Home() {
 
     return (
         <div className="h-screen p-2">
-            <MainUI defaultLayout={mainWidths} />
+            <MainUI
+                defaultMainWidths={mainWidths}
+                defaultClearanceHeights={clearanceHeights}
+            />
         </div>
     );
 }
